@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -19,15 +20,43 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body>
+        {/* Navigation that appears on every page */}
+        <nav className="bg-gray-800 text-white p-4">
+          <div className="container mx-auto flex items-center justify-between">
+            <Link href="/" className="text-xl font-bold">
+              MTG Commander Tracker
+            </Link>
+            <div className="space-x-4">
+              <Link href="/" className="hover:text-gray-300">
+                Home
+              </Link>
+              <Link href="/players" className="hover:text-gray-300">
+                Players
+              </Link>
+              <Link href="/players/new" className="hover:text-gray-300">
+                New Player
+              </Link>
+              <Link href="/games" className="hover:text-gray-300">
+                Games
+              </Link>
+              <Link href="/games/new" className="hover:text-gray-300">
+                New Game
+              </Link>
+              <Link href="/dashboard" className="hover:text-gray-300">
+                Dashboard
+              </Link>
+            </div>
+          </div>
+        </nav>
+
+        {/* This is where your page content will appear */}
+        <main className="min-h-screen bg-gray-500">{children}</main>
       </body>
     </html>
   );

@@ -24,3 +24,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+#text_box_input {
+  color: grey;
+}
+
+#record_new_game_header {
+  color: black;
+}
+
+h2 {
+  color: black;
+}
+
+select {
+  color: grey;
+}
